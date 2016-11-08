@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css" />
+    <link rel="stylesheet" href="/stylesheets/bootstrap-theme.min.css" />
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <ul class="nav navbar-nav">
+            <li><a href="/">Home</a></li>
+            <% if (user) { %>
+                <li><a href="/games">Games</a></li>
+                <!--
+                  In views/partials/header.ejs, add a link to the new Users page
+                  that only shows when someone is logged in to the site
+                -->
+                <li><a href="/users">Users</a></li>
+                <li><a href="/logout">Logout</a></li>
+                <ul class="navbar-text navbar-right">
+                    <li>Signed in as <%= user.username %></li>
+                </ul>
+
+            <% }
+            else { %>
+                <li><a href="/register">Register</a></li>
+                <li><a href="/login">Login</a></li>
+            <% } %>
+        </ul>
+    </nav>
